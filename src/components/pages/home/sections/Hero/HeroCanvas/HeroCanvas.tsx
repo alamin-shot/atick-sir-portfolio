@@ -3,6 +3,7 @@
 import { Canvas } from "@react-three/fiber";
 import { useRef } from "react";
 import { useInView } from "@/components/pages/home/hooks/use-in-view";
+import { usePortraitPixels } from "@/components/pages/home/hooks/use-portrait-pixels";
 import { getTierSettings } from "@/lib/hero/get-tier-settings";
 import { useAppSelector } from "@/store/hooks";
 import { selectDeviceTier } from "@/store/slices/ui-selectors";
@@ -14,6 +15,7 @@ export function HeroCanvas() {
   const isInView = useInView(wrapper);
   const tier = useAppSelector(selectDeviceTier);
   const { maxDpr } = getTierSettings(tier);
+  const portrait = usePortraitPixels();
 
   return (
     <div
@@ -31,7 +33,7 @@ export function HeroCanvas() {
           powerPreference: "high-performance",
         }}
       >
-        <ParticleField />
+        {portrait.ready && <ParticleField portrait={portrait.pixels} />}
         <HeroEffects />
       </Canvas>
     </div>

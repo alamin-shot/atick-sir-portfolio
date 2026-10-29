@@ -12,13 +12,14 @@ import { getTierSettings } from "@/lib/hero/get-tier-settings";
 import { updateParticleFrame } from "@/lib/hero/update-particle-frame";
 import { useAppSelector } from "@/store/hooks";
 import { selectDeviceTier } from "@/store/slices/ui-selectors";
+import type { ParticleFieldProps } from "@/types/components/hero";
 
-export function ParticleField() {
+export function ParticleField({ portrait }: ParticleFieldProps) {
   const tier = useAppSelector(selectDeviceTier);
   const { particleCount, pointSize } = getTierSettings(tier);
   const targets = useMemo(
-    () => buildParticleTargets(particleCount),
-    [particleCount],
+    () => buildParticleTargets(particleCount, portrait),
+    [particleCount, portrait],
   );
   const uniforms = useMemo(
     () => createParticleUniforms(pointSize),
@@ -48,6 +49,10 @@ export function ParticleField() {
           />
         ))}
         <bufferAttribute attach="attributes-aSeed" args={[targets.seeds, 1]} />
+        <bufferAttribute
+          attach="attributes-aLight"
+          args={[targets.portraitLight, 1]}
+        />
       </bufferGeometry>
     </points>
   );

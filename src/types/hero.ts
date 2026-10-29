@@ -13,6 +13,11 @@ export type HeroStageMeta = {
 
 export type ShapeDrawer = (ctx: CanvasRenderingContext2D) => void;
 
+export type PortraitPixels = {
+  ready: boolean;
+  pixels: ImageData | null;
+};
+
 export type TierSettings = {
   particleCount: number;
   maxDpr: number;
@@ -22,6 +27,12 @@ export type TierSettings = {
 export type ParticleTargets = {
   positions: Float32Array[];
   seeds: Float32Array;
+  portraitLight: Float32Array;
+};
+
+export type PortraitSample = {
+  positions: Float32Array;
+  light: Float32Array;
 };
 
 export type PointerNdc = {

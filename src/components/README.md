@@ -34,34 +34,34 @@ Read this before building anything. Reuse or extend what is listed here; never c
 
 ## pages/home/
 
-| Component                              | Purpose                                                                                   |
-| -------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `sections/Hero/HeroSection`            | Hero shell: backdrop, stage and copy.                                                     |
-| `sections/Hero/HeroCopy`               | Server-rendered name, role, disciplines and tagline (the LCP element).                    |
-| `sections/Hero/HeroStage`              | Client leaf: detects the device tier, then shows the canvas or the `fallback`.            |
-| `sections/Hero/HeroCanvas`             | Client leaf, loaded with `next/dynamic`: R3F canvas, `ParticleField`, bloom on high tier. |
-| `sections/Hero/HeroStageLabel`         | Client leaf: names the venture the particles currently form.                              |
-| `sections/Hero/HeroSignature`          | Server, CSS-only: the surname drawing itself, for low-power and reduced-motion devices.   |
-| `sections/Chairman/ChairmanSection`    | The Man: parallax portrait, story, tenets and the pull-quote.                             |
-| `sections/Chairman/ChairmanPortrait`   | Server: framed `next/image` portrait inside `Parallax`.                                   |
-| `sections/Chairman/ChairmanPhilosophy` | Server: numbered tenets.                                                                  |
-| `sections/Chairman/ChairmanQuote`      | Server: oversized pull-quote inside `RevealText`.                                         |
-| `sections/Group/GroupSection`          | The Group: intro panel plus one chapter per venture.                                      |
-| `sections/Group/EmpireTrack`           | Client leaf: pins and scrolls chapters sideways on wide screens; stacks elsewhere.        |
-| `sections/Group/VentureChapter`        | Server: one venture, tinted by its accent class.                                          |
-| `sections/Group/VentureEmblem`         | Client leaf: the venture's hero shape re-assembling from dots on a 2D canvas.             |
-| `sections/Group/VentureStats`          | Server: stat row in the venture accent.                                                   |
-| `sections/Journey/JourneySection`      | The Journey: sticky header beside the milestone list.                                     |
-| `sections/Journey/JourneySpine`        | Client leaf: hairline spine that fills on scroll and lights each milestone it reaches.    |
-| `sections/Journey/MilestoneItem`       | Server: one milestone with its phase number and node.                                     |
-| `sections/Numbers/NumbersSection`      | By the Numbers: four large figures on a teal band.                                        |
-| `sections/Numbers/NumberFigure`        | Server: figure and label, with the final value for screen readers.                        |
-| `sections/Numbers/Counter`             | Client leaf: counts up once on scroll. Server HTML holds the final value.                 |
-| `sections/Trust/TrustSection`          | Trust: certification plaques and the partner marquee.                                     |
-| `sections/Trust/CertificationPlaque`   | Server: monochrome plaque that warms to ember on hover.                                   |
-| `sections/Trust/PartnerMarquee`        | Server, CSS-only marquee. Static wrapping list with reduced motion.                       |
-| `sections/Presence/PresenceSection`    | Presence: intro, highlights and the channel list.                                         |
-| `sections/Presence/PresenceHighlights` | Server: numbered highlights.                                                              |
-| `sections/Letter/LetterSection`        | A Letter: the Chairman's note on a stationery panel.                                      |
-| `sections/Letter/SignatureDraw`        | Client leaf: signs the letter in ember once it scrolls into view.                         |
-| `sections/Connect/ConnectSection`      | Connect: direct contact rows and the group's websites.                                    |
+| Component                              | Purpose                                                                                                                                                                      |
+| -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sections/Hero/HeroSection`            | Hero shell: backdrop, stage and copy.                                                                                                                                        |
+| `sections/Hero/HeroCopy`               | Server-rendered name, role, disciplines and tagline (the LCP element).                                                                                                       |
+| `sections/Hero/HeroStage`              | Client leaf: detects the device tier, then shows the canvas or the `fallback`.                                                                                               |
+| `sections/Hero/HeroCanvas`             | Client leaf, loaded with `next/dynamic`: R3F canvas, `ParticleField`, bloom on high tier. The last stage is sampled from the CEO photo (`scripts/prepare-ceo-portrait.mjs`). |
+| `sections/Hero/HeroStageLabel`         | Client leaf: names the venture the particles currently form.                                                                                                                 |
+| `sections/Hero/HeroSignature`          | Server, CSS-only: the surname drawing itself, for low-power and reduced-motion devices.                                                                                      |
+| `sections/Chairman/ChairmanSection`    | The Man: parallax portrait, story, tenets and the pull-quote.                                                                                                                |
+| `sections/Chairman/ChairmanPortrait`   | Server: framed `next/image` portrait inside `Parallax`.                                                                                                                      |
+| `sections/Chairman/ChairmanPhilosophy` | Server: numbered tenets.                                                                                                                                                     |
+| `sections/Chairman/ChairmanQuote`      | Server: oversized pull-quote inside `RevealText`.                                                                                                                            |
+| `sections/Group/GroupSection`          | The Group: intro panel plus one chapter per venture.                                                                                                                         |
+| `sections/Group/EmpireTrack`           | Client leaf: pins and scrolls chapters sideways on wide screens; stacks elsewhere.                                                                                           |
+| `sections/Group/VentureChapter`        | Server: one venture, tinted by its accent class.                                                                                                                             |
+| `sections/Group/VentureEmblem`         | Client leaf: the venture's hero shape re-assembling from dots on a 2D canvas.                                                                                                |
+| `sections/Group/VentureStats`          | Server: stat row in the venture accent.                                                                                                                                      |
+| `sections/Journey/JourneySection`      | The Journey: sticky header beside the milestone list.                                                                                                                        |
+| `sections/Journey/JourneySpine`        | Client leaf: hairline spine that fills on scroll and lights each milestone it reaches.                                                                                       |
+| `sections/Journey/MilestoneItem`       | Server: one milestone with its phase number and node.                                                                                                                        |
+| `sections/Numbers/NumbersSection`      | By the Numbers: four large figures on a teal band.                                                                                                                           |
+| `sections/Numbers/NumberFigure`        | Server: figure and label, with the final value for screen readers.                                                                                                           |
+| `sections/Numbers/Counter`             | Client leaf: counts up once on scroll. Server HTML holds the final value.                                                                                                    |
+| `sections/Trust/TrustSection`          | Trust: certification plaques and the partner marquee.                                                                                                                        |
+| `sections/Trust/CertificationPlaque`   | Server: monochrome plaque that warms to ember on hover.                                                                                                                      |
+| `sections/Trust/PartnerMarquee`        | Server, CSS-only marquee. Static wrapping list with reduced motion.                                                                                                          |
+| `sections/Presence/PresenceSection`    | Presence: intro, highlights and the channel list.                                                                                                                            |
+| `sections/Presence/PresenceHighlights` | Server: numbered highlights.                                                                                                                                                 |
+| `sections/Letter/LetterSection`        | A Letter: the Chairman's note on a stationery panel.                                                                                                                         |
+| `sections/Letter/SignatureDraw`        | Client leaf: signs the letter in ember once it scrolls into view.                                                                                                            |
+| `sections/Connect/ConnectSection`      | Connect: direct contact rows and the group's websites.                                                                                                                       |

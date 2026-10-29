@@ -1,7 +1,7 @@
 import type { CanvasTier, TierSettings } from "@/types/hero";
 
 export const HERO_TIER_SETTINGS = {
-  high: { particleCount: 26000, maxDpr: 2, pointSize: 9 },
+  high: { particleCount: 34000, maxDpr: 2, pointSize: 9 },
   mid: { particleCount: 11000, maxDpr: 1.5, pointSize: 11 },
 } as const satisfies Record<CanvasTier, TierSettings>;
 
@@ -11,6 +11,24 @@ export const HERO_SAMPLE = {
   alphaThreshold: 128,
   depth: 0.18,
   seed: 20261028,
+} as const;
+
+// Head-and-shoulders photo the Chairman stage is sampled from (made by
+// scripts/prepare-ceo-portrait.mjs). Brighter pixels draw more particles and each
+// particle is shaded by its pixel, so the dust reads as the photo. `floor` keeps dark
+// hair and suit visible; below `fadeFrom` the suit thins out to `fadeMin`. `scale`
+// draws him larger than the venture shapes; `shiftX` keeps his shoulder off the edge.
+export const HERO_PORTRAIT = {
+  src: "/images/chairman/ceo-particles.png",
+  alphaThreshold: 128,
+  floor: 0.2,
+  gamma: 1,
+  fadeFrom: 0.6,
+  fadeMin: 0.5,
+  depth: 0.2,
+  scale: 1.45,
+  shiftX: -0.14,
+  pointScale: 0.7,
 } as const;
 
 export const HERO_COLORS = {

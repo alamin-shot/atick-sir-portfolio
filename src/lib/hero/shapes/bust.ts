@@ -1,6 +1,6 @@
 import type { ShapeDrawer } from "@/types/hero";
 
-// Placeholder silhouette until the Chairman's portrait photo is sampled instead.
+// Fallback silhouette, used only if the Chairman's photo fails to load.
 export const drawBust: ShapeDrawer = (ctx) => {
   ctx.beginPath();
   ctx.ellipse(110, 70, 34, 42, 0, 0, Math.PI * 2);

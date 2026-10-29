@@ -1,6 +1,9 @@
+import { HERO_PORTRAIT } from "@/constants/hero-config";
+
 // Morphs every particle between five stage shapes on the GPU. uProgress wraps every 5,
 // so after the last shape it flows on into the first. Each particle starts its move
-// with a small per-seed delay so shapes dissolve, not jump.
+// with a small per-seed delay so shapes dissolve, not jump. vPortrait says how far
+// into the Chairman's photo stage (the last) a particle is, so it can be shaded.
 export const particleVertexShader = /* glsl */ `
 uniform float uProgress;
 uniform float uIntro;
@@ -18,9 +21,12 @@ attribute vec3 aPos2;
 attribute vec3 aPos3;
 attribute vec3 aPos4;
 attribute float aSeed;
+attribute float aLight;
 
 varying float vSeed;
 varying float vAlpha;
+varying float vLight;
+varying float vPortrait;
 
 vec3 stagePosition(float index) {
   if (index < 0.5) return aPos0;
@@ -36,6 +42,8 @@ void main() {
   float toStage = mod(fromStage + 1.0, 5.0);
   float delay = aSeed * 0.35;
   float t = smoothstep(delay, delay + 0.65, fract(stage));
+
+  float portrait = (fromStage > 3.5 ? 1.0 - t : 0.0) + (toStage > 3.5 ? t : 0.0);
 
   vec3 dir = normalize(vec3(sin(aSeed * 91.7), cos(aSeed * 47.3), sin(aSeed * 13.1) * 0.6) + 0.0001);
   vec3 shape = mix(stagePosition(fromStage), stagePosition(toStage), t);
@@ -53,9 +61,12 @@ void main() {
 
   vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
   gl_Position = projectionMatrix * mvPosition;
-  gl_PointSize = uSize * uPixelRatio * (0.55 + aSeed * 0.9) / -mvPosition.z;
+  float sizeScale = mix(1.0, ${HERO_PORTRAIT.pointScale.toFixed(2)}, portrait);
+  gl_PointSize = uSize * sizeScale * uPixelRatio * (0.55 + aSeed * 0.9) / -mvPosition.z;
 
   vSeed = aSeed;
   vAlpha = 1.0 - uDisperse * 0.85;
+  vLight = aLight;
+  vPortrait = portrait;
 }
 `;
