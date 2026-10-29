@@ -1,0 +1,41 @@
+/* Partner names drift sideways forever; the list is rendered twice so -50% loops seamlessly. */
+.partner-marquee {
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+}
+
+.partner-marquee-track {
+  animation: marquee 48s linear infinite;
+}
+
+.partner-marquee:hover .partner-marquee-track {
+  animation-play-state: paused;
+}
+
+/* Without motion: one static, centred, wrapping list. */
+@media (prefers-reduced-motion: reduce) {
+  .partner-marquee {
+    mask-image: none;
+  }
+
+  .partner-marquee-track {
+    width: auto;
+    justify-content: center;
+    animation: none;
+  }
+
+  .partner-marquee-list {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 1rem;
+  }
+
+  .partner-marquee-copy {
+    display: none;
+  }
+}

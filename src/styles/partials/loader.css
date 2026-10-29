@@ -1,0 +1,55 @@
+/* Shared loader: an ember dot orbiting a teal ring. Pure CSS, server-safe. */
+.loader {
+  --loader-size: 3.5rem;
+  display: grid;
+  place-items: center;
+}
+
+.loader--fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  background-color: var(--color-obsidian);
+  --loader-size: 4.5rem;
+}
+
+.loader--section {
+  min-height: 40svh;
+  width: 100%;
+}
+
+.loader--inline {
+  display: inline-grid;
+  vertical-align: middle;
+  --loader-size: 1.1rem;
+}
+
+.loader-ring {
+  position: relative;
+  display: block;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  border-radius: 9999px;
+  border: 1px solid color-mix(in oklab, var(--color-teal) 70%, transparent);
+  animation: loader-breathe 2.4s var(--ease-chairman) infinite;
+}
+
+.loader-orbit {
+  position: absolute;
+  inset: -1px;
+  animation: loader-orbit 1.6s linear infinite;
+}
+
+.loader-dot {
+  position: absolute;
+  top: calc(var(--loader-size) * -0.06);
+  left: 50%;
+  width: calc(var(--loader-size) * 0.14);
+  height: calc(var(--loader-size) * 0.14);
+  min-width: 4px;
+  min-height: 4px;
+  translate: -50% 0;
+  border-radius: 9999px;
+  background-color: var(--color-ember);
+  box-shadow: 0 0 calc(var(--loader-size) * 0.25) var(--color-ember);
+}

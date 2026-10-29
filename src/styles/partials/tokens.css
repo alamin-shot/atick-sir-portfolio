@@ -1,0 +1,25 @@
+/* Quiet Power: Tekzo ember + teal on an obsidian ground. */
+@theme {
+  --color-obsidian: #0b0e0e;
+  --color-panel: #111716;
+  --color-panel-raised: #16201f;
+  --color-line: #24312f;
+  --color-ivory: #eee8df;
+  --color-mist: #8f9b98;
+  --color-ember: #e8553d;
+  --color-ember-soft: #f07a63;
+  --color-teal: #0f6e6b;
+  --color-teal-bright: #3db1a7;
+  --color-etaan: #c9a46b;
+  --color-motors: #8fa3b8;
+
+  --ease-chairman: cubic-bezier(0.16, 1, 0.3, 1);
+  --tracking-eyebrow: 0.16em;
+  --tracking-role: 0.22em;
+}
+
+@theme inline {
+  --font-display: var(--font-bodoni), "Didot", "Bodoni 72", Georgia, serif;
+  --font-sans: var(--font-hanken), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, Consolas, monospace;
+}

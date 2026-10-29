@@ -1,0 +1,16 @@
+/* Per-venture accent, read by utilities such as text-(--accent). */
+.accent-teal-bright {
+  --accent: var(--color-teal-bright);
+}
+
+.accent-ember {
+  --accent: var(--color-ember);
+}
+
+.accent-etaan {
+  --accent: var(--color-etaan);
+}
+
+.accent-motors {
+  --accent: var(--color-motors);
+}

@@ -1,0 +1,25 @@
+/* Ember hairline corners framing the portrait. */
+.portrait-corners::before,
+.portrait-corners::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0 solid var(--color-ember);
+  pointer-events: none;
+}
+
+.portrait-corners::before {
+  top: -0.5rem;
+  left: -0.5rem;
+  border-top-width: 1px;
+  border-left-width: 1px;
+}
+
+.portrait-corners::after {
+  right: -0.5rem;
+  bottom: -0.5rem;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+}

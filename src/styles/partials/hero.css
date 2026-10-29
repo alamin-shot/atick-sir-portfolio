@@ -1,0 +1,13 @@
+.hero-backdrop {
+  background:
+    radial-gradient(
+      ellipse 60% 70% at 68% 50%,
+      color-mix(in oklab, var(--color-teal) 35%, var(--color-obsidian)) 0%,
+      var(--color-obsidian) 70%
+    ),
+    var(--color-obsidian);
+}
+
+.hero-canvas {
+  animation: hero-fade-in 1.4s var(--ease-chairman) both;
+}

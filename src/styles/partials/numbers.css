@@ -1,0 +1,10 @@
+/* A faint teal band sets the numbers apart from the sections around them. */
+.numbers-band {
+  background:
+    radial-gradient(
+      ellipse 70% 90% at 50% 100%,
+      color-mix(in oklab, var(--color-teal) 22%, transparent) 0%,
+      transparent 70%
+    ),
+    var(--color-panel);
+}

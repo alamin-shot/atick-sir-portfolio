@@ -1,0 +1,25 @@
+/* Milestone nodes light up in ember once the spine reaches them. */
+.journey-node {
+  transition:
+    background-color 0.6s var(--ease-chairman),
+    border-color 0.6s var(--ease-chairman),
+    box-shadow 0.6s var(--ease-chairman);
+}
+
+.is-reached .journey-node {
+  border-color: var(--color-ember);
+  background-color: var(--color-ember);
+  box-shadow: 0 0 18px color-mix(in oklab, var(--color-ember) 60%, transparent);
+}
+
+.is-reached .journey-phase {
+  color: var(--color-ember-soft);
+}
+
+/* Without motion the spine is fully drawn, so every node is lit. */
+@media (prefers-reduced-motion: reduce) {
+  .journey-node {
+    border-color: var(--color-ember);
+    background-color: var(--color-ember);
+  }
+}

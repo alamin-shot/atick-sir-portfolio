@@ -1,0 +1,15 @@
+@import "tailwindcss";
+@import "lenis/dist/lenis.css";
+@import "./partials/tokens.css";
+@import "./partials/base.css";
+@import "./partials/keyframes.css";
+@import "./partials/grain.css";
+@import "./partials/hero.css";
+@import "./partials/signature.css";
+@import "./partials/accents.css";
+@import "./partials/chairman.css";
+@import "./partials/group.css";
+@import "./partials/journey.css";
+@import "./partials/numbers.css";
+@import "./partials/trust.css";
+@import "./partials/loader.css";
